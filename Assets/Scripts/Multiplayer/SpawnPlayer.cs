@@ -1,0 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using UnityEngine;
+using Photon.Realtime;
+using Photon.Pun;
+
+public class SpawnPlayer : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        CreatePlayer();
+    }
+
+    private void CreatePlayer()
+    {
+        Vector3 spawnLocation = new Vector3(0, 10, 0);
+        GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PLAYER"), spawnLocation, Quaternion.identity);
+    }
+
+}
