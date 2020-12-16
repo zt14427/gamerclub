@@ -46,6 +46,11 @@ public class Camera_Controller : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);
         transform.position = thirdPersonOffset + (rotation * dist);
         transform.LookAt(thirdPersonOffset);
+
+        if (Input.GetMouseButton(1))
+        {
+            playerTransform.rotation = Quaternion.Euler(0, mouseX, 0);
+        }
     }
 
 }
