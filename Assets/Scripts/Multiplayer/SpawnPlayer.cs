@@ -15,7 +15,7 @@ public class SpawnPlayer : MonoBehaviour
 
     private void CreatePlayer()
     {
-        Vector3 spawnLocation = new Vector3(0, 10, 0);
+        Vector3 spawnLocation = transform.position;
         GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PLAYER"), spawnLocation, Quaternion.identity);
     }
 
