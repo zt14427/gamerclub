@@ -12,8 +12,7 @@ public class CharacterMovement : MonoBehaviour
 
 	//[Header("Settings")]
 	private float speed = 0f;
-	private float moveSpeed = 10f;
-	private float sprintSpeed = 19f;
+	private float sprintMultiplier = 1.6f;
 	private float rotateSpeed = 240f;
 	private Vector3 moveDirection = Vector3.zero;
 	private float jumpSpeed = 26.0F;
@@ -93,11 +92,11 @@ public class CharacterMovement : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
-			speed = sprintSpeed;
+			speed = LocalStats.runSpeed * sprintMultiplier;
 		}
 		else
 		{
-			speed = moveSpeed;
+			speed = LocalStats.runSpeed;
 		}
 		if (PV.IsMine)
 		{
