@@ -10,6 +10,7 @@ public class LocalStats : MonoBehaviour
 
     private void Awake()
     {
+        unlockables[0] = true;
         DontDestroyOnLoad(this);
     }
 }
