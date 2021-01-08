@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class Teleporter : MonoBehaviour
 {
+    public int unlock = 0;
     Transform teleportLink;
     private void Start()
     {
@@ -12,12 +13,9 @@ public class Teleporter : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided, transport to: " + teleportLink.position);
         // Only if the object is a server-side object teleport
-        if (other.gameObject.GetComponent<PhotonView>()) {
+        if (other.gameObject.GetComponent<PhotonView>() && LocalStats.unlockables[unlock]) {
             CharacterController cc = other.GetComponent<CharacterController>();
-
-            Debug.Log("teleporting: "  + other.transform.position);
             cc.enabled = false;
             other.transform.position = teleportLink.position;
             cc.enabled = true;
