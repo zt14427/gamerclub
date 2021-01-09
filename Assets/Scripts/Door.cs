@@ -11,6 +11,9 @@ public class Door : MonoBehaviour
     [SerializeField]
     private float openForce = 10.0f;
 
+    [SerializeField]
+    AudioSource ting;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger entered: " + other.transform.name);
@@ -20,6 +23,7 @@ public class Door : MonoBehaviour
             {
                 Vector3 dir = (other.transform.position - transform.position).normalized;
                 rb.AddForce(-dir * openForce, ForceMode.Impulse);
+                ting.Play();
             }
         }
     }
