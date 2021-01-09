@@ -53,6 +53,7 @@ public class ConnectRoom : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.AutomaticallySyncScene = true;
         Debug.Log("Joined master server");
+        joinRoom();
     }
 
     public void joinRoom()
