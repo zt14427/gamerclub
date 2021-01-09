@@ -7,6 +7,8 @@ public class CharacterMovement : MonoBehaviour
 	private PhotonView PV;
 	private CharacterController myCC;
 
+	public Camera cam;
+
 
 	private bool grounded = false;
 
@@ -85,6 +87,11 @@ public class CharacterMovement : MonoBehaviour
 		{
 			transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
 		}
+
+		if (Input.GetMouseButton(1))
+        {
+			transform.rotation = Quaternion.Euler(0, cam.transform.rotation.eulerAngles.y, 0);
+        }
 	}
 
 

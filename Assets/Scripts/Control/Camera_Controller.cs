@@ -8,6 +8,8 @@ public class Camera_Controller : MonoBehaviour
     
     public Transform playerTransform;   // player gameObject transform.
     Vector3 thirdPersonOffset;          // vector offset above player gameObject.
+    private Transform Obstruction;
+    float zoomSpeed = 2.0f;
 
     public float distance = 12.0f;
     private float mouseX = 0.0f;        // Current X value of mouse input.
@@ -53,4 +55,28 @@ public class Camera_Controller : MonoBehaviour
         }
     }
 
+    /*
+    void ViewObstruction()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, playerTransform.position - transform.position, out hit, 4.5f))
+        {
+            if (hit.collider.gameObject.tag != "Player")
+            {
+                Obstruction = hit.transform;
+                Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+
+                if (Vector3.Distance(Obstruction.position, transform.position) >= 3f && Vector3.Distance(transform.position, playerTransform.position) >= 1.5f)
+                    transform.Translate(Vector3.forward * zoomSpeed * Time.deltaTime);
+            }
+            else
+            {
+                Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                if (Vector3.Distance(transform.position, playerTransform.position) < 4.5f)
+                    transform.Translate(Vector3.back * zoomSpeed * Time.deltaTime);
+            }
+        }
+    }
+    */
 }
