@@ -39,7 +39,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3288e42cf359cf5428dcc1f52bff3782, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7158c603b86f1d541afd99054d742875, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.307
   m_Pitch: 1
@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc1de7fbc0cf144fa8a37212fa5b8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stadium: {fileID: 0}
 --- !u!114 &835055333
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class ball : MonoBehaviour
         kick = gameObject.GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.transform.name.Contains("PLAYER"))//.tag == "Player")
         {

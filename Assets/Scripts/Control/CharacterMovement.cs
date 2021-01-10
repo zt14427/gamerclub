@@ -6,6 +6,7 @@ public class CharacterMovement : MonoBehaviour
 {
 	private PhotonView PV;
 	private CharacterController myCC;
+	private Animator animator;
 
 	public Camera cam;
 
@@ -21,6 +22,7 @@ public class CharacterMovement : MonoBehaviour
 	private float gravity = 50.0F;
 	private float maxVelocity = 200f;
 	//public var velocidade = 30;
+	private bool moving = false, falling = false;
 
 	Vector3 syncPos = Vector3.zero;
 	Quaternion syncRot = Quaternion.identity;
@@ -28,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
 	private void Start()
 	{
 		Physics.IgnoreCollision(GetComponent<Collider>(), GetComponent<CharacterController>());
+		this.animator = this.GetComponent<Animator>();
 		PV = GetComponent<PhotonView>();
 		if (PV.IsMine)
 		{
@@ -39,8 +42,10 @@ public class CharacterMovement : MonoBehaviour
 
     void BasicMovement()
 	{
+		moving = false;
 		if (myCC.isGrounded && Input.GetButton("Jump"))
 		{
+			animator.SetTrigger("Jump_t");
 			moveDirection.y = jumpSpeed;
 		}
 		if (myCC.isGrounded && moveDirection.y < 0)
@@ -49,7 +54,8 @@ public class CharacterMovement : MonoBehaviour
 		}
 		else
 		{
-			moveDirection.y -= gravity * Time.deltaTime;
+			moveDirection.y -= (moveDirection.y > -50f) ? gravity * Time.deltaTime : 0;
+			falling = (moveDirection.y < -20.0f);
 		}
 
 		// diagonal fix
@@ -61,18 +67,22 @@ public class CharacterMovement : MonoBehaviour
 		if (Input.GetKey(KeyCode.W))
 		{
 			myCC.Move(transform.forward * Time.deltaTime * speed);
+			moving = true;
 		}
 		if (Input.GetKey(KeyCode.A))
 		{
 			myCC.Move(-transform.right * Time.deltaTime * speed);
+			moving = true;
 		}
 		if (Input.GetKey(KeyCode.S))
 		{
 			myCC.Move(-transform.forward * Time.deltaTime * speed);
+			moving = true;
 		}
 		if (Input.GetKey(KeyCode.D))
 		{
 			myCC.Move(transform.right * Time.deltaTime * speed);
+			moving = true;
 		}
 	}
 
@@ -109,6 +119,17 @@ public class CharacterMovement : MonoBehaviour
 		{
 			BasicMovement();
 			BasicRotation();
+
+			animator.SetBool("Falling_b", falling);
+
+			if (moving)
+			{
+				animator.SetFloat("Speed_f", speed/2);
+			}
+			else
+			{
+				animator.SetFloat("Speed_f", 0);
+			}
 		}
 	}
 }

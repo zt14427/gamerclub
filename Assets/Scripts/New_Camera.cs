@@ -8,7 +8,6 @@ public class New_Camera : MonoBehaviour
     CinemachineFreeLook Camera;
     public void Setup()
     {
-        Debug.Log("Attempting to access LocalStats.Player");
         Camera = GetComponent<CinemachineFreeLook>();
         Camera.Follow = LocalStats.Player.transform;
         Camera.LookAt = LocalStats.Player.transform;
