@@ -9,7 +9,7 @@ public class Camera_Controller : MonoBehaviour
     public Transform playerTransform;   // player gameObject transform.
     Vector3 thirdPersonOffset;          // vector offset above player gameObject.
     private Transform Obstruction;
-    float zoomSpeed = 2.0f;
+    //float zoomSpeed = 2.0f;
 
     public float distance = 12.0f;
     private float mouseX = 0.0f;        // Current X value of mouse input.

@@ -10,7 +10,7 @@ public class SimplePeoplePlayer : MonoBehaviour
     // Member variables.
     public PhotonView photonView;
     private Animator animator;
-    private bool isMoving = false;
+   // private bool isMoving = false;
     private bool isJumping = false;
     private float speed = 0f;
 

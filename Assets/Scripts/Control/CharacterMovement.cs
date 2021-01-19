@@ -21,11 +21,8 @@ public class CharacterMovement : MonoBehaviour
 	private float jumpSpeed = 26.0F;
 	private float gravity = 50.0F;
 	private float maxVelocity = 200f;
-	//public var velocidade = 30;
+	private int jumpsRemaining = 1;
 	private bool moving = false, falling = false;
-
-	Vector3 syncPos = Vector3.zero;
-	Quaternion syncRot = Quaternion.identity;
 
 	private void Start()
 	{
@@ -43,14 +40,17 @@ public class CharacterMovement : MonoBehaviour
     void BasicMovement()
 	{
 		moving = false;
-		if (myCC.isGrounded && Input.GetButton("Jump"))
+		if (Input.GetButtonDown("Jump") && jumpsRemaining > 0)
 		{
+			Debug.Log(jumpsRemaining);
+			jumpsRemaining--;
 			animator.SetTrigger("Jump_t");
 			moveDirection.y = jumpSpeed;
 		}
-		if (myCC.isGrounded && moveDirection.y < 0)
+		else if (myCC.isGrounded)
 		{
 			moveDirection.y = 0;
+			jumpsRemaining = LocalStats.jumps;
 		}
 		else
 		{

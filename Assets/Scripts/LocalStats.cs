@@ -8,10 +8,12 @@ public class LocalStats : MonoBehaviour
     public static int money = 0;
     public static int[] gems = new int[3];
     public static float runSpeed = 10.0f;
+    public static int jumps = 9;
     public static bool[] unlockables = new bool[10];
 
     private void Awake()
     {
+        gems[0] = 10;
         unlockables[0] = true;
         DontDestroyOnLoad(this);
     }
