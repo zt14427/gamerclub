@@ -20,7 +20,6 @@ public class SpawnPlayer : MonoBehaviour
         GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PLAYER"), spawnLocation, Quaternion.identity);
         LocalStats.Player = player;
         Debug.Log("LocalStats set");
-        cam.Setup();
     }
 
 }

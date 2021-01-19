@@ -15,6 +15,6 @@ public class LocalStats : MonoBehaviour
     {
         gems[0] = 10;
         unlockables[0] = true;
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
     }
 }

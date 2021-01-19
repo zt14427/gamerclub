@@ -8,8 +8,8 @@ public class CharacterMovement : MonoBehaviour
 	private CharacterController myCC;
 	private Animator animator;
 
-	public Camera cam;
-
+	[SerializeField]
+	GameObject cam;
 
 	private bool grounded = false;
 
@@ -31,8 +31,9 @@ public class CharacterMovement : MonoBehaviour
 		PV = GetComponent<PhotonView>();
 		if (PV.IsMine)
 		{
-			GetComponentInChildren<Camera>().enabled = true;
-			GetComponentInChildren<AudioListener>().enabled = true;
+			cam.SetActive(true);
+			//GetComponentInChildren<Camera>().enabled = true;
+			//GetComponentInChildren<AudioListener>().enabled = true;
 		}
 		myCC = GetComponent<CharacterController>();
 	}
