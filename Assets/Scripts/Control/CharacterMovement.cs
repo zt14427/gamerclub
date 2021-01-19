@@ -32,6 +32,8 @@ public class CharacterMovement : MonoBehaviour
 		if (PV.IsMine)
 		{
 			cam.SetActive(true);
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
 			//GetComponentInChildren<Camera>().enabled = true;
 			//GetComponentInChildren<AudioListener>().enabled = true;
 		}
