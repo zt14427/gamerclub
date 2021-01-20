@@ -8,7 +8,6 @@ using Photon.Pun;
 public class SpawnPlayer : MonoBehaviour
 {
     // Start is called before the first frame update
-    public New_Camera cam;
     void Start()
     {
         CreatePlayer();

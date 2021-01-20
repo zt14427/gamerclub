@@ -11,6 +11,9 @@ public class CharacterMovement : MonoBehaviour
 	[SerializeField]
 	GameObject cam;
 
+	[SerializeField]
+	bool isDemo;
+
 	private bool grounded = false;
 
 	//[Header("Settings")]
@@ -29,7 +32,7 @@ public class CharacterMovement : MonoBehaviour
 		Physics.IgnoreCollision(GetComponent<Collider>(), GetComponent<CharacterController>());
 		this.animator = this.GetComponent<Animator>();
 		PV = GetComponent<PhotonView>();
-		if (PV.IsMine)
+		if (PV.IsMine || isDemo)
 		{
 			cam.SetActive(true);
 			Cursor.visible = false;
@@ -118,7 +121,7 @@ public class CharacterMovement : MonoBehaviour
 		{
 			speed = LocalStats.runSpeed;
 		}
-		if (PV.IsMine)
+		if (PV.IsMine || isDemo)
 		{
 			BasicMovement();
 			BasicRotation();

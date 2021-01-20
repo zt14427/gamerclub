@@ -16,8 +16,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger entered: " + other.transform.name);
-        if (other.transform.name.Contains("PLAYER"))
+        //Debug.Log("Trigger entered: " + other.tag + "\n" + other.tag.Equals("Player"));
+        if (other.tag.Equals("Player"))
         {
             if (other.gameObject.GetComponent<PhotonView>().IsMine)
             {
