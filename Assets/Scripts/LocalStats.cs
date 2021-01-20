@@ -11,10 +11,31 @@ public class LocalStats : MonoBehaviour
     public static int jumps = 9;
     public static bool[] unlockables = new bool[10];
 
+    private static float scaleTimer = 0f;
+    public static float scaleDuration;
+    public static float scale = 1.0f;
+
     private void Awake()
     {
         gems[0] = 10;
+        gems[1] = 1;
         unlockables[0] = true;
         DontDestroyOnLoad(this.gameObject);
     }
+
+    public static void Scale()
+    {
+        scaleTimer = Time.time;
+    }
+
+    private void Update()
+    {
+        Debug.Log(Time.time);
+        if (scale != 1.0f && (Time.time > scaleTimer + scaleDuration))
+        {
+            scale = 1.0f;
+        }
+    }
+
+
 }

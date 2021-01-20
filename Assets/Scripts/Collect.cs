@@ -13,6 +13,11 @@ public class Collect : MonoBehaviour
     [SerializeField]
     private AudioSource otherSound;
 
+    [SerializeField]
+    private int gemIndex;
+    [SerializeField]
+    private int respawnTime;
+
 
     private void Start()
     {
@@ -27,7 +32,7 @@ public class Collect : MonoBehaviour
             if (other.gameObject.GetComponent<PhotonView>().IsMine)
             {
                 gemSound.Play();
-                LocalStats.gems[0]++;
+                LocalStats.gems[gemIndex]++;
             } else
             {
                 otherSound.Play();
@@ -39,7 +44,7 @@ public class Collect : MonoBehaviour
     {
         mr.enabled = false;
         sc.enabled = false;
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(respawnTime);
         mr.enabled = true;
         sc.enabled = true;
     }

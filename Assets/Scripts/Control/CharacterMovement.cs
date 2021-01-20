@@ -12,9 +12,7 @@ public class CharacterMovement : MonoBehaviour
 	GameObject cam;
 
 	[SerializeField]
-	bool isDemo;
-
-	private bool grounded = false;
+	bool isDemo = false;
 
 	//[Header("Settings")]
 	private float speed = 0f;
@@ -23,9 +21,9 @@ public class CharacterMovement : MonoBehaviour
 	private Vector3 moveDirection = Vector3.zero;
 	private float jumpSpeed = 26.0F;
 	private float gravity = 50.0F;
-	private float maxVelocity = 200f;
 	private int jumpsRemaining = 1;
 	private bool moving = false, falling = false;
+	private Vector3 scalingRate = new Vector3(0.005f, 0.005f, 0.005f);
 
 	private void Start()
 	{
@@ -48,10 +46,10 @@ public class CharacterMovement : MonoBehaviour
 		moving = false;
 		if (Input.GetButtonDown("Jump") && jumpsRemaining > 0)
 		{
-			Debug.Log(jumpsRemaining);
+			//Debug.Log(jumpsRemaining);
 			jumpsRemaining--;
 			animator.SetTrigger("Jump_t");
-			moveDirection.y = jumpSpeed;
+			moveDirection.y = jumpSpeed * LocalStats.scale;
 		}
 		else if (myCC.isGrounded)
 		{
@@ -113,18 +111,35 @@ public class CharacterMovement : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.LeftShift))
-		{
-			speed = LocalStats.runSpeed * sprintMultiplier;
-		}
-		else
-		{
-			speed = LocalStats.runSpeed;
-		}
 		if (PV.IsMine || isDemo)
 		{
+			if (Input.GetKey(KeyCode.LeftShift))
+			{
+				speed = LocalStats.runSpeed * sprintMultiplier;
+			}
+			else
+			{
+				speed = LocalStats.runSpeed;
+			}
+
+			speed *= LocalStats.scale;
+
 			BasicMovement();
 			BasicRotation();
+
+			Vector3 properScale = new Vector3(LocalStats.scale, LocalStats.scale, LocalStats.scale);
+
+			if (transform.localScale != properScale)
+            {
+				if (transform.localScale.magnitude < properScale.magnitude)
+                {
+					transform.localScale += scalingRate;
+                }
+                else
+                {
+					transform.localScale -= scalingRate;
+                }
+            }
 
 			animator.SetBool("Falling_b", falling);
 

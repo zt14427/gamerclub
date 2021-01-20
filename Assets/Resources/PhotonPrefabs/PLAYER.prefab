@@ -535,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 3927512025844353054}
+  isDemo: 0
 --- !u!114 &3408762237891316263
 MonoBehaviour:
   m_ObjectHideFlags: 0
