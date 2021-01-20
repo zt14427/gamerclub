@@ -123,6 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gemSound: {fileID: 7281866235417754237}
   otherSound: {fileID: 6173365416044870534}
+  gemIndex: 0
+  respawnTime: 60
 --- !u!1 &8971093062402471779
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +261,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011841440206, guid: 0ed203d298c050b49bfabe788790e1c2, type: 3}
       propertyPath: m_Name
-      value: 4 Side Diamond Variant
+      value: Ruby
       objectReference: {fileID: 0}
     - target: {fileID: 4000012861777782, guid: 0ed203d298c050b49bfabe788790e1c2, type: 3}
       propertyPath: m_RootOrder

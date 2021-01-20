@@ -48,9 +48,9 @@ public class Merchant : MonoBehaviour
 
     public void buyDoor()
     {
-        if (LocalStats.gems[0] >= 2)
+        if (LocalStats.gems[1] >= 1)
         {
-            LocalStats.gems[0] -= 2;
+            LocalStats.gems[1] -= 1;
             door.openWall();
         }
     }
