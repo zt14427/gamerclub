@@ -55,10 +55,11 @@ v2f vert(appdata v)
 ENDCG
 
 
-Subshader {
-	Tags { "RenderType"="Opaque" }
+Subshader{
+	Tags { "RenderType" = "Opaque" }
 	Pass {
-
+		Blend SrcAlpha OneMinusSrcAlpha
+		ColorMask RGB
 CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
