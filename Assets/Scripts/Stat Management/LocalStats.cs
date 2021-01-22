@@ -21,8 +21,8 @@ public class LocalStats : MonoBehaviour
 
     private void Awake()
     {
-        gems[0] = 10;
-        gems[1] = 1;
+        //gems[0] = 10;
+        //gems[1] = 1;
         unlockables[0] = true;
         DontDestroyOnLoad(this.gameObject);
     }
