@@ -14,14 +14,16 @@ public class CharacterMovement : MonoBehaviour
 	[SerializeField]
 	bool isDemo = false;
 
+	public Vector3 moveDirection = Vector3.zero;
+	public readonly float gravity = 50.0F;
+
 	//[Header("Settings")]
 	private float speed = 0f;
 	private float sprintMultiplier = 1.6f;
 	private float rotateSpeed = 240f;
-	private Vector3 moveDirection = Vector3.zero;
 	private float jumpSpeed = 26.0F;
-	private float gravity = 50.0F;
-	private int jumpsRemaining = 1;
+
+	public int jumpsRemaining = 1;
 	private bool moving = false, falling = false;
 	private Vector3 scalingRate = new Vector3(0.005f, 0.005f, 0.005f);
 
@@ -53,7 +55,7 @@ public class CharacterMovement : MonoBehaviour
 		}
 		else if (myCC.isGrounded)
 		{
-			moveDirection.y = 0;
+			moveDirection.y = (moveDirection.y < 0) ? 0 : moveDirection.y;
 			jumpsRemaining = LocalStats.jumps;
 		}
 		else
@@ -104,10 +106,10 @@ public class CharacterMovement : MonoBehaviour
 
 		if (Input.GetMouseButton(1))
         {
+			Debug.Log("moving");
 			transform.rotation = Quaternion.Euler(0, cam.transform.rotation.eulerAngles.y, 0);
         }
 	}
-
 
 	void Update()
 	{
@@ -152,5 +154,8 @@ public class CharacterMovement : MonoBehaviour
 				animator.SetFloat("Speed_f", 0);
 			}
 		}
+
+
+
 	}
 }

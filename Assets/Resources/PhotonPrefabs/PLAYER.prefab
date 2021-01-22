@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 419789779278468129}
   - component: {fileID: 918999659640337040}
   - component: {fileID: 3408762237891316263}
+  - component: {fileID: 8465790416849500383}
   m_Layer: 0
   m_Name: PLAYER
   m_TagString: Player
@@ -536,6 +537,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 3927512025844353054}
   isDemo: 0
+  moveDirection: {x: 0, y: 0, z: 0}
+  jumpsRemaining: 1
 --- !u!114 &3408762237891316263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +580,19 @@ MonoBehaviour:
     LayerIndex: 6
   - SynchronizeType: 0
     LayerIndex: 7
+--- !u!114 &8465790416849500383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106357478983325791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440445533cf99674b96f19084b74237c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Metal: {fileID: 2100000, guid: 10e8878a06d16dd44b47ef1380196f10, type: 2}
 --- !u!1 &3106357478983333341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1478,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f828177b1ca264468c788ffedb9d32c, type: 2}
+  - {fileID: 2100000, guid: e68783d64ae1cde418debc0de555bb1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

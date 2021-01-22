@@ -6,6 +6,13 @@ namespace UnityStandardAssets.Water
     [ExecuteInEditMode]
     public class WaterBasic : MonoBehaviour
     {
+
+
+        //[SerializeField]
+        //public Vector4 waveSpeed = new Vector4(9f, 4.5f, -8f, -3.5f);
+        //[SerializeField]
+        //public float waveScale = 0.7028302f;
+
         void Update()
         {
             Renderer r = GetComponent<Renderer>();
