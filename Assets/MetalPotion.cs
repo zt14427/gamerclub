@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class ShrinkingPotion : MonoBehaviour
+public class MetalPotion : MonoBehaviour
 {
     [SerializeField]
     private int duration;
     [SerializeField]
     private int respawnTime;
+
+    private MeshModifier mm;
 
     private MeshRenderer mr;
     private SphereCollider sc;
@@ -23,17 +25,14 @@ public class ShrinkingPotion : MonoBehaviour
         Debug.Log("Potion collided with: " + other.transform.name);
         if (other.tag.Equals("Player"))
         {
-            Debug.Log("shrinking");
-            if (other.gameObject.GetComponent<PhotonView>().IsMine)
+            Debug.Log("metallizing");
+            if (mm = other.gameObject.GetComponent<MeshModifier>())
             {
-                LocalStats.scale = 0.5f;
-                LocalStats.scaleDuration = duration;
-                LocalStats.Scale();
+                mm.Metalize(duration);
+                StartCoroutine(respawnPotion());
             }
-            StartCoroutine(respawnPotion());
         }
     }
-
     IEnumerator respawnPotion()
     {
         mr.enabled = false;
@@ -42,4 +41,5 @@ public class ShrinkingPotion : MonoBehaviour
         mr.enabled = true;
         sc.enabled = true;
     }
+
 }

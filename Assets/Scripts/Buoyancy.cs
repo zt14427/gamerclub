@@ -52,7 +52,8 @@ public class Buoyancy : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-       if (cm = other.gameObject.GetComponent<CharacterMovement>())
+        underwaterUI.SetActive(false);
+        if (cm = other.gameObject.GetComponent<CharacterMovement>())
             if (!jumpCD && cm.jumpsRemaining > 0)
                 cm.jumpsRemaining--;
     }

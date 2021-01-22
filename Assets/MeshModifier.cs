@@ -29,19 +29,24 @@ public class MeshModifier : MonoBehaviour
         configureCurrentSkin();
     }
 
-    IEnumerator changeMaterial(Material changeTo, float duration)
+
+    IEnumerator buoyancyChange(Material changeTo, float duration, float buoyancy)
     {
         previousMaterial = smr.material;
         smr.material = changeTo;
+        LocalStats.buoyancy = buoyancy;
         yield return new WaitForSeconds(duration);
         smr.material = previousMaterial;
-
+        LocalStats.buoyancy = 1.0f;
     }
 
     public void Metalize(float duration)
     {
+
+        float metalBuoyancy = 0.3f;
+
         configureCurrentSkin();
-        StartCoroutine(changeMaterial(Metal, duration));
+        StartCoroutine(buoyancyChange(Metal, duration, metalBuoyancy));
         
     }
 
