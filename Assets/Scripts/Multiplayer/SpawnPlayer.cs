@@ -11,6 +11,7 @@ public class SpawnPlayer : MonoBehaviour
     void Start()
     {
         CreatePlayer();
+        Respawn.RespawnLocation = transform;
     }
 
     private void CreatePlayer()

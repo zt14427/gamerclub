@@ -25,8 +25,12 @@ public class MineOre : MonoBehaviour
 
     private BoxCollider bc;
 
+    // Sounds
+    AudioSource mineSound;
+
     private void Start()
     {
+        mineSound = gameObject.GetComponent<AudioSource>();
         bc = GetComponent<BoxCollider>();
     }
 
@@ -61,7 +65,7 @@ public class MineOre : MonoBehaviour
         bc.enabled = false;
         for (int i = 0; i < 3; i++)
             transform.GetChild(i).GetComponent<MeshRenderer>().material = depleted;
-
+        mineSound.Play();
         yield return new WaitForSeconds(respawnTime);
 
         bc.enabled = true;

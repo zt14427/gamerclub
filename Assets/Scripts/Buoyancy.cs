@@ -19,6 +19,14 @@ public class Buoyancy : MonoBehaviour
     Rigidbody rb;
     CharacterMovement cm;
 
+    // Sounds
+    private AudioSource splash;
+
+    private void Start()
+    {
+        splash = gameObject.GetComponent<AudioSource>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (rb = other.gameObject.GetComponent<Rigidbody>())
@@ -36,6 +44,10 @@ public class Buoyancy : MonoBehaviour
             if (cm.moveDirection.y < 0f)
             {
                 cm.moveDirection.y *= 0.5f;
+            }
+            if (cm.moveDirection.y < 0f)
+            {
+                splash.Play();
             }
 
         }

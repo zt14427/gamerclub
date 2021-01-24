@@ -5,8 +5,8 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     [SerializeField]
-    Transform RespawnLocation;
-    
+    public static Transform RespawnLocation;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.name.Contains("PLAYER"))
