@@ -45,7 +45,7 @@ public class Buoyancy : MonoBehaviour
             {
                 cm.moveDirection.y *= 0.5f;
             }
-            if (cm.moveDirection.y < 0f)
+            if (cm.moveDirection.y <  0f)
             {
                 splash.Play();
             }

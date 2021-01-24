@@ -14,8 +14,10 @@ public class MetalPotion : MonoBehaviour
 
     private MeshRenderer mr;
     private SphereCollider sc;
+    private AudioSource metalSound;
     private void Start()
     {
+        metalSound = gameObject.GetComponent<AudioSource>();
         mr = GetComponent<MeshRenderer>();
         sc = GetComponent<SphereCollider>();
     }
@@ -26,6 +28,7 @@ public class MetalPotion : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             Debug.Log("metallizing");
+            metalSound.Play();
             if (mm = other.gameObject.GetComponent<MeshModifier>())
             {
                 mm.Metalize(duration);
