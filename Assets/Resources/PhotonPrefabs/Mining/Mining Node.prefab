@@ -46,8 +46,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 3.5, z: 3.5}
-  m_Center: {x: 0, y: 1.637, z: 0}
+  m_Size: {x: 5.5, y: 5.0879097, z: 5.5}
+  m_Center: {x: 0, y: 2.4180841, z: 0}
 --- !u!114 &4508342030033333835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +60,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc864a5f86e643048b0f2e84e4a53e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oreName: Copper
+  oreColor: brown
+  oreIndex: 0
+  respawnTime: 60
+  UIAlert: {fileID: 0}
+  depleted: {fileID: 2100000, guid: ec503188c86943940897ef3a1429155e, type: 2}
+  full: {fileID: 2100000, guid: 630cbef9be6555e4e8c68774f4105007, type: 2}
 --- !u!1001 &488394608417379154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +74,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7253621725117542595}
     m_Modifications:
+    - target: {fileID: 8402614890984903042, guid: 169e5f050a9f145489237cc7105f3c1d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 630cbef9be6555e4e8c68774f4105007, type: 2}
     - target: {fileID: 8402614890987163458, guid: 169e5f050a9f145489237cc7105f3c1d, type: 3}
       propertyPath: m_Name
       value: Rock3
@@ -197,6 +208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock2
       objectReference: {fileID: 0}
+    - target: {fileID: 8944619187267421756, guid: c2cb5e8a081a26c4a94df01eb6c4e44c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 630cbef9be6555e4e8c68774f4105007, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2cb5e8a081a26c4a94df01eb6c4e44c, type: 3}
 --- !u!4 &7428984733562192214 stripped
@@ -211,9 +226,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7253621725117542595}
     m_Modifications:
+    - target: {fileID: 7462569862154447986, guid: 1aba0fbf10ced5447ad5eb30f4652084, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 630cbef9be6555e4e8c68774f4105007, type: 2}
     - target: {fileID: 7462569862156710578, guid: 1aba0fbf10ced5447ad5eb30f4652084, type: 3}
       propertyPath: m_Name
       value: Rock1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462569862156710578, guid: 1aba0fbf10ced5447ad5eb30f4652084, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7462569862156873362, guid: 1aba0fbf10ced5447ad5eb30f4652084, type: 3}
       propertyPath: m_RootOrder

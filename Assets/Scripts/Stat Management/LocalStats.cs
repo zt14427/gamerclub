@@ -9,14 +9,18 @@ public class LocalStats : MonoBehaviour
     public static int[] gems = new int[3];
     public static float runSpeed = 10.0f;
     public static int jumps = 1;
-    public static bool[] unlockables = new bool[10];
-    public static float buoyancy = 1.0f;
 
+    public static int[] ores = new int[7];
+    public static int[] miningXP = new int[7];
+
+    public static bool[] unlockables = new bool[10];
+
+    public static float buoyancy = 1.0f;
     private static float scaleTimer = 0f;
     public static float scaleDuration;
     public static float scale = 1.0f;
 
-    // {metalized(no float), ... }
+    // {metalized(0 buoyancy), ... }
     public static bool[] modifiers = new bool[2];
 
     private void Awake()

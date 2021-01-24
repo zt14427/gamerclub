@@ -1,24 +1,71 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MineOre : MonoBehaviour
 {
     [SerializeField]
+    string oreName = "Copper";
 
+    [SerializeField]
+    string oreColor = "brown";
 
-    private GameObject canvas;
+    [SerializeField]
+    int oreIndex = 0;
+
+    [SerializeField]
+    float respawnTime = 60;
+
+    [SerializeField]
+    Text UIAlert;
+
+    [SerializeField]
+    Material depleted, full;
+
+    private BoxCollider bc;
+
     private void Start()
     {
-        canvas = GameObject.Find("Canvas");
+        bc = GetComponent<BoxCollider>();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Photon.Pun.PhotonView>().IsMine)
         {
-
+            UIAlert.text = "Press <F> to mine:\n<color=" + oreColor + ">" + oreName + " </color>";
         }
-
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Photon.Pun.PhotonView>().IsMine)
+        {
+            UIAlert.text = "";
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+       if (other.GetComponent<Photon.Pun.PhotonView>().IsMine && Input.GetKey("f"))
+        {
+            StartCoroutine(MineNode());
+        } 
+    }
+
+    private IEnumerator MineNode()
+    {
+        LocalStats.ores[oreIndex]++;
+        UIAlert.text = "";
+        bc.enabled = false;
+        for (int i = 0; i < 3; i++)
+            transform.GetChild(i).GetComponent<MeshRenderer>().material = depleted;
+
+        yield return new WaitForSeconds(respawnTime);
+
+        bc.enabled = true;
+        for (int i = 0; i < 3; i++)
+            transform.GetChild(i).GetComponent<MeshRenderer>().material = full;
+    }
 }
