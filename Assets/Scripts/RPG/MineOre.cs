@@ -54,6 +54,8 @@ public class MineOre : MonoBehaviour
     {
        if (other.GetComponent<Photon.Pun.PhotonView>().IsMine && Input.GetKey("f"))
         {
+            FloatingNotification.float_notify("+1 <color=" + oreColor + ">" + oreName + " </color>",
+                transform.position + new Vector3(0f, 2f, 0f));
             StartCoroutine(MineNode());
         } 
     }

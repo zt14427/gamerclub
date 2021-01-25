@@ -6,7 +6,10 @@ public class LocalStats : MonoBehaviour
 {
     public static GameObject Player;
     public static int money = 0;
+
+    public static readonly string[] gemNames = { "Ruby", "Emerald", "Diamond" };
     public static int[] gems = new int[3];
+
     public static float runSpeed = 10.0f;
     public static int jumps = 1;
 

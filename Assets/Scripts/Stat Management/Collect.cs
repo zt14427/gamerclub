@@ -24,7 +24,7 @@ public class Collect : MonoBehaviour
     {
         mr = GetComponent<MeshRenderer>();
         sc = GetComponent<SphereCollider>();
-        pointLight = GetComponent<Light>();
+        pointLight = GetComponentInChildren<Light>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +34,7 @@ public class Collect : MonoBehaviour
             if (other.gameObject.GetComponent<PhotonView>().IsMine)
             {
                 gemSound.Play();
+                FloatingNotification.float_notify("+ 1 " + LocalStats.gemNames[gemIndex], transform.position);
                 LocalStats.gems[gemIndex]++;
             } else
             {
