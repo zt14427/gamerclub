@@ -7,6 +7,7 @@ public class Collect : MonoBehaviour
 {
     private MeshRenderer mr;
     private SphereCollider sc;
+    private Light pointLight;
 
     [SerializeField]
     private AudioSource gemSound;
@@ -23,6 +24,7 @@ public class Collect : MonoBehaviour
     {
         mr = GetComponent<MeshRenderer>();
         sc = GetComponent<SphereCollider>();
+        pointLight = GetComponent<Light>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,8 +46,10 @@ public class Collect : MonoBehaviour
     {
         mr.enabled = false;
         sc.enabled = false;
+        pointLight.enabled = false;
         yield return new WaitForSeconds(respawnTime);
         mr.enabled = true;
         sc.enabled = true;
+        pointLight.enabled = true;
     }
 }

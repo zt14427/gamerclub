@@ -44,10 +44,9 @@ public class MeshModifier : MonoBehaviour
     {
 
         float metalBuoyancy = 0.3f;
-
+        StatusEffectUI.AddEffect("Metallized", duration, "grey");
         configureCurrentSkin();
         StartCoroutine(buoyancyChange(Metal, duration, metalBuoyancy));
-        
     }
 
     // Update is called once per frame

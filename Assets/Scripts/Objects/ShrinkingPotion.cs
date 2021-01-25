@@ -28,6 +28,7 @@ public class ShrinkingPotion : MonoBehaviour
             {
                 LocalStats.scale = 0.5f;
                 LocalStats.scaleDuration = duration;
+                StatusEffectUI.AddEffect("Shrunk", duration, "purple");
                 LocalStats.Scale();
             }
             StartCoroutine(respawnPotion());

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Checkpoint : MonoBehaviour
 {
@@ -26,21 +27,24 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Photon.Pun.PhotonView>().IsMine  && previousCheckpoint != this)
+        PhotonView pv = other.GetComponent<PhotonView>();
+        if (pv != null && pv.IsMine && previousCheckpoint != this)
         {
             UIAlert.text = "Press <F> to set Checkpoint";
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<Photon.Pun.PhotonView>().IsMine)
+        PhotonView pv = other.GetComponent<PhotonView>();
+        if (pv != null && pv.IsMine)
         {
             UIAlert.text = "";
         }
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.GetComponent<Photon.Pun.PhotonView>().IsMine && Input.GetKey("f"))
+        PhotonView pv = other.GetComponent<PhotonView>();
+        if (pv != null && pv.IsMine && Input.GetKey("f"))
         {
             UIAlert.text = "";
             setCheckpoint();
