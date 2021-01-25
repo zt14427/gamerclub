@@ -11,7 +11,7 @@ public class LocalStats : MonoBehaviour
     public static int jumps = 1;
 
     public static int[] ores = new int[7];
-    public static int[] miningXP = new int[7];
+    public static int miningXP = 0;
 
     public static bool[] unlockables = new bool[10];
 
