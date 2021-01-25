@@ -9,7 +9,8 @@ public class PlayVideo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Photon.Pun.PhotonView>().IsMine)
+        Photon.Pun.PhotonView pv = other.GetComponent<Photon.Pun.PhotonView>();
+        if (pv != null && pv.IsMine)
         {
             video.Play();
         }
