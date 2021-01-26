@@ -24,10 +24,10 @@ public class MetalPotion : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Potion collided with: " + other.transform.name);
+        //Debug.Log("Potion collided with: " + other.transform.name);
         if (other.tag.Equals("Player"))
         {
-            Debug.Log("metallizing");
+            //Debug.Log("metallizing");
             metalSound.Play();
             if (mm = other.gameObject.GetComponent<MeshModifier>())
             {

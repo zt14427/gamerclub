@@ -41,13 +41,17 @@ public class StatusEffectUI : MonoBehaviour
     void Update()
     {
         temp = "";
+
+        // This can be improved for performance reasons
+        // Current build is slightly scuffed to avoid errors in console
+        List<StatusEffect> toRemove = new List<StatusEffect>();
         foreach (StatusEffect effect in activeEffects)
         {
             // Remove the effect if the duration is over.
             //Debug.Log(Time.time + " : " + effect.invokeTime + " - " + effect.duration);
             if (Time.time > (effect.invokeTime + effect.duration))
             {
-                activeEffects.Remove(effect);
+                toRemove.Add(effect);
                 Debug.Log("continuing");
                 continue;
             }
@@ -56,6 +60,7 @@ public class StatusEffectUI : MonoBehaviour
             temp += "<color=" + effect.color.ToString() + ">" + effect.name + ": "
                 + (int)(effect.duration - (Time.time - effect.invokeTime + 0.5f)) + " </color>\n";
         }
+        activeEffects.RemoveAll(x => toRemove.Contains(x));
         if (temp.Length > 0) temp = temp.Remove(temp.Length - 1, 1);
         UIText.text = temp;
     }

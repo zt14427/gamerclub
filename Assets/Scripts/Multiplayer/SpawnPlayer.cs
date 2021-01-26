@@ -19,7 +19,6 @@ public class SpawnPlayer : MonoBehaviour
         Vector3 spawnLocation = transform.position;
         GameObject player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PLAYER"), spawnLocation, Quaternion.identity);
         LocalStats.Player = player;
-        Debug.Log("LocalStats set");
     }
 
 }
