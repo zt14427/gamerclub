@@ -68,6 +68,7 @@ public class MineOre : MonoBehaviour
         for (int i = 0; i < 3; i++)
             transform.GetChild(i).GetComponent<MeshRenderer>().material = depleted;
         mineSound.Play();
+        InventoryUpdater.updateInventoryText();
         yield return new WaitForSeconds(respawnTime);
 
         bc.enabled = true;
