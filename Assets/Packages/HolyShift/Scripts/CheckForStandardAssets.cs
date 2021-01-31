@@ -6,6 +6,9 @@ using UnityEditor;
 [ExecuteInEditMode]
 public class CheckForStandardAssets : MonoBehaviour {
 
+
+	#if UNITY_EDITOR
+
 	// Use this for initialization
 	void Awake () {
 	    var guids = AssetDatabase.FindAssets("FXWater4Advanced", null);
@@ -16,4 +19,5 @@ public class CheckForStandardAssets : MonoBehaviour {
 	void Update () {
 		
 	}
+	#endif
 }

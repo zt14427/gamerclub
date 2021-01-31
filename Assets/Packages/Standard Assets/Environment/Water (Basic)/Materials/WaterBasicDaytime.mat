@@ -113,7 +113,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaveScale: 0.07028302
+    - _WaveScale: 0.1384
     - _ZWrite: 0
     - _bScale: 0.07
     - _bTwirl: 0.05
@@ -136,7 +136,7 @@ Material:
     - _RefrColor: {r: 0.34, g: 0.85, b: 0.92, a: 1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 0.4}
     - _WaveSpeed: {r: 1, g: -1, b: -1, a: 1}
-    - _horizonColor: {r: 0, g: 0.22179441, b: 0.33962262, a: 0.84313726}
+    - _horizonColor: {r: 0.3679245, g: 0.24123353, b: 0.27963248, a: 0.6156863}
     - horizonColor: {r: 0.615, g: 0.796, b: 0.876, a: 1}
     - uvParams: {r: 10, g: 0.02, b: 0.03, a: 0}
     - waveDirX: {r: -2.5, g: 0, b: 7, a: 8}

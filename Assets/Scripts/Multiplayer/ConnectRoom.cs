@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 public class ConnectRoom : MonoBehaviourPunCallbacks
 {
-    private int multiplayerSceneIndex = 1;
+    private int multiplayerSceneIndex = 2;
     private static string roomName = "gamers";
 
     // All fields that are required to Join the proper room
